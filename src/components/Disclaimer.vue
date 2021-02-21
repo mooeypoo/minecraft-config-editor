@@ -17,21 +17,21 @@
         target="_blank"
         href="https://github.com/mooeypoo/minecraft-config-editor/issues"
       >
-        <v-icon left>mdi-spider</v-icon> Report a bug
+        <v-icon left color="indigo">mdi-spider</v-icon> Report a bug
       </v-btn>
       <v-btn
         text
         target="_blank"
         href="https://github.com/mooeypoo/minecraft-config-editor/issues"
       >
-        <v-icon left>mdi-gift</v-icon> Suggest a feature!
+        <v-icon left color="indigo">mdi-gift</v-icon> Suggest a feature!
       </v-btn>
       <v-btn
         text
         target="_blank"
         href="https://www.buymeacoffee.com/mooeypoo"
       >
-        <v-icon left>mdi-heart</v-icon>Support me
+        <v-icon left color="red">mdi-heart</v-icon>Support me
       </v-btn>
     </v-card-actions>
   </v-card>

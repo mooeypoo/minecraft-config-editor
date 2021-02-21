@@ -20,17 +20,14 @@
 
       <v-spacer></v-spacer>
       <v-btn
-        href="https://www.buymeacoffee.com/mooeypoo"
-        target="_blank"
+        @click="onCreditsButtonClick"
         text
       >
         <v-icon>mdi-heart</v-icon>
-        <span class="mx-2">Support this</span>
+        <span class="mx-2">Disclaimer & Credits</span>
         <v-icon>mdi-heart</v-icon>
       </v-btn>
     </v-app-bar>
-
-<!-- <pre>{{ $store.state.file.json }}</pre> -->
     <v-main>
       <v-overlay :value="isLoading">
         <v-progress-circular
@@ -86,6 +83,8 @@
     <ResetDialog ref="resetDialog" />
     <!-- Download dialog -->
     <DownloadDialog ref="downloaDialog" />
+    <!-- Download dialog -->
+    <CreditsDialog ref="creditsDialog" />
 
     </v-main>
   </v-app>
@@ -97,6 +96,7 @@ import UploadFile from './components/UploadFile'
 import ClearLaggEditor from './components/ClearLaggEditor'
 import ResetDialog from './components/ResetDialog'
 import DownloadDialog from './components/DownloadDialog'
+import CreditsDialog from './components/CreditsDialog'
 
 export default {
   name: 'App',
@@ -104,7 +104,8 @@ export default {
     UploadFile,
     ClearLaggEditor,
     ResetDialog,
-    DownloadDialog
+    DownloadDialog,
+    CreditsDialog
   },
   data: () => ({
   }),
@@ -119,6 +120,9 @@ export default {
   methods: {
     onResetButtonClick () {
       this.$refs.resetDialog.open()
+    },
+    onCreditsButtonClick () {
+      this.$refs.creditsDialog.open()
     },
     onDownloadButtonClick () {
       this.$refs.downloaDialog.open()
