@@ -20,13 +20,28 @@
           <v-col align="center" justify="center" class="col-8">
             <div v-if="showFile">
               <h2>Your config is ready!</h2>
-              <v-textarea
-                solo
-                label="New config"
-                :value="newFileContents"
-                height="500"
-                class="config-textarea"
-              ></v-textarea>
+              <v-row align="center" justify="center">
+                <v-col>
+                <v-textarea
+                  solo
+                  label="New config"
+                  :value="newFileContents"
+                  height="500"
+                  class="config-textarea"
+                ></v-textarea>
+                </v-col>
+              </v-row>
+              <v-row align="center" justify="center">
+                <v-col>
+                  <v-btn
+                    x-large
+                    color="primary"
+                    :href="getDownloadableHref"
+                    download="config.yml"
+                  >Download
+                  </v-btn>
+                </v-col>
+              </v-row>
             </div>
             <div v-if="!showFile">
               <v-row align="center" justify="center">
@@ -79,7 +94,12 @@ export default {
   computed: {
     ...mapGetters([
       'getNewConfig'
-    ])
+    ]),
+    getDownloadableHref () {
+      return (
+        'data:application/octet-stream;base64,' + window.btoa(this.newFileContents)
+      )
+    }
   },
   methods: {
     reset () {

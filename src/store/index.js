@@ -25,14 +25,19 @@ export default new Vuex.Store({
     getNewConfig: state => {
       // Reload the original yaml text in YAWN so we can keep comments
       const yawn = new YAWN(state.file.originalText)
+      let clone = {}
+      // Deep copy the json
+      try {
+        clone = JSON.parse(JSON.stringify(state.file.json))
+      } catch (e) {
+        // This should never happen
+      }
 
       // Apply changes
-      yawn.json = Object.assign({}, state.file.json)
-      // yawn.json = { settings: { 'auto-update': false } }
+      yawn.json = clone
 
       // Return a new yaml text
       return yawn.yaml
-      // return yawn
     }
   },
   mutations: {
